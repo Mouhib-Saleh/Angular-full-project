@@ -1,0 +1,82 @@
+<br><br>
+  <div style="display:flex ; justify-content:center ;margin-top: 50px; "  >
+    
+      <span class="input-group-text" id="inputGroup-sizing-default">Search</span> 
+    <input  #prod type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" style="width: 35%; " (keyup)="search(prod.value)">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Ajouter
+    </button>
+</div>
+ 
+<div style="display:flex ; justify-content:center ;margin-top: 10px;" *ngFor="let item of values">  
+        <fieldset
+        [ngStyle]="item.prixUnitaire<=50? {'color': 'blue','fontSize':'20px','fontStyle':'italic'} : {'color': 'black'}" class="list-group-item"
+          style="
+          
+            position: center;
+            align-items: center;
+            border: 1px black solid;
+            width: 50%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-left: 10px; " >
+          <legend>Produit: {{ item.idProduit }}  <button class="btn btn-danger" [disabled]="item.tauxTVA==0.02" (click) ='ajuster(item.idProduit)'>Ajuster TVA</button></legend>
+          code: {{ item.code }} <br />
+          libelle: {{ item.libelle }}<br />
+          prix unitaire: {{ item.prixUnitaire}}<br />
+          taux tva: {{item.tauxTVA}}
+         
+          <div *ngIf="mod == item.idProduit ">
+            <p style="color: red;"> produit modifiée</p>
+          </div>
+        </fieldset>
+
+
+  </div>
+  
+        
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout d'un produit</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form [formGroup]="productform" >
+        <div class="modal-body">
+            <!-- ID PRODUIT -->
+            
+  <label for="exampleFormControlInput1" class="form-label">idProduit</label>
+  <input formControlName="idProduit" type="text" class="form-control" id="exampleFormControlInput1" placeholder="ID du Produit">
+             <!-- CODE  -->
+  <label for="exampleFormControlInput1" class="form-label">Code</label>
+  <input formControlName="code" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Code du Produit">
+            <!-- Libelle-->
+  <label for="exampleFormControlInput1" class="form-label">Libelle</label>
+  <input formControlName="libelle" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Libelle du Produit">
+            <!-- Prix unitaire -->
+            <label for="exampleFormControlInput1" class="form-label">Prix unitaire</label>
+            <input formControlName="prixUnitaire" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Prix unitaire du Produit">
+            <!-- Taux TVA -->
+            <label for="exampleFormControlInput1" class="form-label">Taux TVA</label>
+            <input formControlName="tauxTVA" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Taux TVA">
+          
+          </div>
+        </form>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+          <button type="button" class="btn btn-primary" (click)="AddProd()">Ajouter</button>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+

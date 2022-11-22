@@ -1,0 +1,33 @@
+<div *ngFor="let item of list">
+  <div *ngIf="item.idFournisseur < 100">
+    <div *ngIf="item.libelle == 'hp'; else elseBlock">
+      <fieldset
+        (click)="supp(item.idFournisseur)"
+        style="
+          background-color: rgba(23, 190, 23, 0.677);
+          border: 1px black solid;
+          width: 70%;
+          padding: 10px;
+          margin-top: 10px;
+          margin-left: 10px;" >
+        <legend>Id Fournisseur: {{ item.idFournisseur }}</legend>
+        code: {{ item.code }} <br />
+        libelle: {{ item.libelle }}
+      </fieldset>
+    </div>
+    <ng-template #elseBlock>
+      <fieldset
+        (click)="supp(item.idFournisseur)"
+        style="
+          border: 1px black solid;
+          width: 70%;
+          padding: 10px;
+          margin-top: 10px;
+          margin-left: 10px; " >
+        <legend>Id Fournisseur: {{ item.idFournisseur }}</legend>
+        code: {{ item.code }} <br />
+        libelle: {{ item.libelle }}
+      </fieldset>
+    </ng-template>
+  </div>
+</div>

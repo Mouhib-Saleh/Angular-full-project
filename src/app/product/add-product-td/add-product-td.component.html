@@ -1,0 +1,152 @@
+<br />
+<div style="display: flex; justify-content: center">
+
+<form #form="ngForm" style="width: 30%;" (ngSubmit)="onSubmit()">
+    <h1>Ajouter Produit</h1>
+ 
+  <div class="form-group">
+    <label for="es">ID produit</label>
+    <input
+      type="number"
+      class="form-control"
+      id="es"
+      required
+      [(ngModel)]="model.idProduit"
+      #idProduit="ngModel"
+      name="idProduit"
+      placeholder="Enter ID"
+    />
+    
+    <div [hidden]="idProduit.valid || idProduit.pristine"
+     class="alert alert-danger" style="font-size: small;"> ID required </div>
+  </div>
+  <div class="form-group">
+    <label for="esz">Code</label>
+    <input
+      type="text"
+      class="form-control"
+      id="esz"
+      required
+      pattern= "[a-zA-Z-0-9]{8}"
+      [(ngModel)]="model.code"
+      #code="ngModel"
+      name="code"
+      placeholder="Enter code"
+    />
+    <div [hidden]="code.valid || code.pristine"
+    class="alert alert-danger"  style="font-size: small;"> min 8 </div>
+  </div>
+  <div class="form-group">
+    <label for="ese">libelle</label>
+    <input
+      type="text"
+      class="form-control"
+      id="ese"
+      required
+      pattern= "[a-zA-Z0-9]{3,}"
+      [(ngModel)]="model.libelle"
+      #libelle="ngModel"
+      name="libelle"
+      placeholder="Enter libelle"
+    />
+    <div [hidden]="libelle.valid || libelle.pristine"
+    class="alert alert-danger"  style="font-size: small;"> min 3</div>
+  </div>
+  <div class="form-group">
+    <label for="er">Prix Unitaire</label>
+    <input
+      type="number"
+      class="form-control"
+      id="er"
+      required
+      pattern ="[1-9][0-9]*"
+      [(ngModel)]="model.prixUnitaire"
+      #prixUnitaire="ngModel"
+      name="prixUnitaire"
+      placeholder="Enter Prix"
+    />
+    <div [hidden]="prixUnitaire.valid || prixUnitaire.pristine"
+    class="alert alert-danger"> </div>
+    <div class="form-group">
+        <label for="eses">Taux TVA</label>
+        <input
+          type="number"
+          class="form-control"
+          id="eses"
+          
+          placeholder="Enter taux"
+          required
+          [(ngModel)]="model.tauxTVA"
+          #tauxTVA="ngModel"
+          name="tauxTVA"
+        />
+        <div [hidden]="tauxTVA.valid || tauxTVA.pristine"
+        class="alert alert-danger"> </div>
+      </div>
+  <br>
+    <button class="btn btn-primary" [hidden]="!form.invalid" [disabled]="form.invalid">
+
+        suivant
+    </button>
+  
+  </div>
+  <br>
+  
+  <div class="form-group" [hidden]="form.invalid">
+    <label for="cat">Category</label>
+    <select class="form-control" id="cat" required>
+      <option *ngFor="let cat of cats" [value]="cat">{{cat}}</option>
+    </select>
+  </div>
+   <br>
+ <!--  <button type="button" class="btn btn-default" (click)="newUser(); form.reset()">New Hero</button> -->
+  <button type="submit" class="btn btn-primary"  [hidden]="form.invalid" [disabled]="form.invalid">
+    Ajouter
+  </button>
+</form>
+
+
+
+
+
+
+  <div style="position: relative ;position: fixed;
+  z-index: 1; 
+  left: 33%;
+  top: 33%; "     [hidden]="!submitted" >
+    <div class="modal-dialog">
+         <div class="modal-content">
+           
+            <div class="modal-header">
+               
+                <div id="message1" style="display:block;">
+                
+                    <div class="alert alert-success">
+                        <h2>You submitted the following:</h2>
+                      <span class="glyphicon glyphicon-ok"></span>
+                        <strong>
+                            
+                            <div class="row">
+                              <div class="col-xs-3">Name: {{ model.libelle }} </div>
+                            
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-3">ID produit: {{ model.idProduit }}</div>
+                             
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-3">Code: {{ model.code }}</div>
+                              
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+                       </strong>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+ </div>
+
+
+</div>

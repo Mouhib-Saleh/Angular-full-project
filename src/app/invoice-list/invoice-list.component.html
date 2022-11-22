@@ -1,0 +1,12 @@
+
+<div *ngFor="let item of list">
+  
+    
+        <fieldset style="margin-left: 20px; margin-bottom:10px">
+       
+          Facture: {{ item.idFacture }} <a [routerLink]="['/invoice', item.idFacture,item.active]" class="btn btn-primary" >Details</a>
+          
+        </fieldset>
+   
+    
+  </div>
