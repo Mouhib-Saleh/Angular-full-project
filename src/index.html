@@ -1,16 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Workshop3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
+    <title>Mini Project</title>
     <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
+    <link rel="apple-touch-icon" href="./assets/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/app-assets/images/ico/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/vendors/css/extensions/nouislider.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/vendors/css/extensions/toastr.min.css">
+    <!-- END: Vendor CSS-->
+
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/themes/semi-dark-layout.css">
+
+    <!-- BEGIN: Page CSS-->
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/plugins/extensions/ext-component-sliders.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/pages/app-ecommerce.css">
+    <link rel="stylesheet" type="text/css" href="./assets/app-assets/css/plugins/extensions/ext-component-toastr.css">
+    <!-- END: Page CSS-->
+
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="./assets/assets/css/style.css">
+    <!-- END: Custom CSS-->
+ </head>
+<body class="vertical-layout vertical-menu-modern content-detached-left-sidebar navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="content-detached-left-sidebar">
+
+
 
     <app-root></app-root>
     
    
   </body>
+   <!-- BEGIN: Vendor JS-->
+   <script src="./assets/app-assets/vendors/js/vendors.min.js"></script>
+   <!-- BEGIN Vendor JS-->
+   <!-- BEGIN: Page Vendor JS-->
+   <script src="./assets/app-assets/vendors/js/extensions/wNumb.min.js"></script>
+   <script src="./assets/app-assets/vendors/js/extensions/nouislider.min.js"></script>
+   <script src="./assets/app-assets/vendors/js/extensions/toastr.min.js"></script>
+   <!-- END: Page Vendor JS-->
+   <!-- BEGIN: Theme JS-->
+   
+   <script src="./assets/app-assets/js/core/app-menu.js"></script>
+   <script src="./assets/app-assets/js/core/app.js"></script>
+   <!-- END: Theme JS-->
+   <!-- BEGIN: Page JS-->
+   <script src="./assets/app-assets/js/scripts/pages/app-ecommerce.js"></script>
+   
+   <!-- END: Page JS-->
+   <script>
+       $(window).on('load', function() {
+           if (feather) {
+               feather.replace({
+                   width: 14,
+                   height: 14
+               });
+           }
+       })
+   </script>
 </html>
