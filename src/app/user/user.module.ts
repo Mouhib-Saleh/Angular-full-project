@@ -8,7 +8,7 @@ import { MainUserComponent } from './main-user/main-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { FormUserComponent } from './form-user/form-user.component';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AccountsComponent,
@@ -21,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     UserRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ]
 })
 export class UserModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-form-user',
   templateUrl: './form-user.component.html',
@@ -32,7 +33,7 @@ onSubmit() { this.submitted = true;
 console.log("this.model")
 }
 
-  constructor() { }
+  constructor( private router: Router) { this.router.routeReuseStrategy.shouldReuseRoute = () => false; }
   newUser() {
    console.log(this.model);
   }

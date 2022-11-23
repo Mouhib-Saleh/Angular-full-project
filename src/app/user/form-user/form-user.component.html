@@ -1,173 +1,204 @@
-<br /><br />
-<div style="display: flex; justify-content: center">
-
-<form #form="ngForm" style="width: 30%;" (ngSubmit)="onSubmit()">
-    <h1>Ajouter User</h1>
- 
-  <div class="form-group">
-    <label for="es">Nom</label>
-    <input
-      type="text"
-      class="form-control"
-      id="es"
-      required
-      pattern= "[a-zA-Z]{3,}"
-      [(ngModel)]="model.firstName"
-      #name="ngModel"
-      name="firstName"
-      placeholder="Enter name"
-    />
-    
-    <div [hidden]="name.valid || name.pristine"
-     class="alert alert-danger" > </div>
-  </div>
-  <div class="form-group">
-    <label for="esz">Prenom</label>
-    <input
-      type="text"
-      class="form-control"
-      id="esz"
-      required
-      pattern= "[a-zA-Z]{3,}"
-      [(ngModel)]="model.lastName"
-      #lastName="ngModel"
-      name="lastName"
-      placeholder="Enter last name"
-    />
-    <div [hidden]="lastName.valid || lastName.pristine"
-    class="alert alert-danger"> </div>
-  </div>
-  <div class="form-group">
-    <label for="ese">Birth date</label>
-    <input
-      type="date"
-      class="form-control"
-      id="ese"
-      required
-      [(ngModel)]="model.birthDate"
-      #date="ngModel"
-      name="date"
-    />
-    <div [hidden]="date.valid || date.pristine"
-    class="alert alert-danger"> </div>
-  </div>
-  <div class="form-group">
-    <label for="er">Email address</label>
-    <input
-      type="email"
-      class="form-control"
-      id="er"
-      required
-      pattern="^[a-zA-Z0-9._-]+@gmail.com"
-      aria-describedby="emailHelp"
-      [(ngModel)]="model.email"
-      #email="ngModel"
-      name="email"
-      placeholder="Enter email"
-    />
-    <div [hidden]="email.valid || email.pristine"
-    class="alert alert-danger"> </div>
-  
-
-
-  </div>
-  <div class="form-group">
-    <label for="eses">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      id="eses"
-      pattern="^[a-zA-Z0-9]{8,}?"
-      placeholder="Enter password"
-      required
-      [(ngModel)]="model.password"
-      #password="ngModel"
-      name="password"
-    />
-    <div [hidden]="password.valid || password.pristine"
-    class="alert alert-danger"> </div>
-  </div>
-  <div class="form-group">
-    <label for="esess">Profession</label>
-    <input
-      type="text"
-      class="form-control"
-      id="esess"
-      required
-      [(ngModel)]="model.profession"
-      #profession="ngModel"
-      name="profession"
-      placeholder="Enter profession"
-    />
-    <div [hidden]="profession.valid || profession.pristine"
-    class="alert alert-danger"> </div>
-    </div>
-    <div class="form-group">
-        <label for="ezs">Category</label>
-        <input
-          type="text"
-          value="Customer"
-          disabled="true"
-          class="form-control"
-          id="ezs"
-          required
-          [(ngModel)]="model.accountCategory"
-          #accountCategory="ngModel"
-          name="accountCategory"
-         
-        />
-        <div [hidden]="accountCategory.valid || accountCategory.pristine"
-        class="alert alert-danger"> </div>
-       
-  </div>
- <!--  <button type="button" class="btn btn-default" (click)="newUser(); form.reset()">New Hero</button> -->
-  <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
-    Add
-  </button>
-</form>
 
 
 
 
 
 
-  <div style="position: relative ;position: fixed;
-  z-index: 1; 
-  left: 33%;
-  top: 33%; "     [hidden]="!submitted" >
-    <div class="modal-dialog">
-         <div class="modal-content">
+
+ <!-- Modal -->
+ <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter User</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+     
+
+      <div style="display: flex; justify-content: center">
+
+        <form #form="ngForm"  (ngSubmit)="onSubmit()">
            
-            <div class="modal-header">
-               
-                <div id="message1" style="display:block;">
-                
-                    <div class="alert alert-success">
-                        <h2>You submitted the following:</h2>
-                      <span class="glyphicon glyphicon-ok"></span>
-                        <strong>
-                            
-                            <div class="row">
-                              <div class="col-xs-3">Name: {{ model.firstName }} </div>
-                            
-                            </div>
-                            <div class="row">
-                              <div class="col-xs-3">Last name: {{ model.lastName }}</div>
-                             
-                            </div>
-                            <div class="row">
-                              <div class="col-xs-3">Profession: {{ model.profession }}</div>
-                              
-                            </div>
-                            <br>
-                            <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
-                       </strong>
-                    </div>
-                </div>
+         
+          <div class="form-group">
+            <label for="es">Nom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="es"
+              required
+              pattern= "[a-zA-Z]{3,}"
+              [(ngModel)]="model.firstName"
+              #name="ngModel"
+              name="firstName"
+              placeholder="Enter name"
+            />
+            
+            <div [hidden]="name.valid || name.pristine"
+             class="alert alert-danger" > </div>
+          </div>
+          <div class="form-group">
+            <label for="esz">Prenom</label>
+            <input
+              type="text"
+              class="form-control"
+              id="esz"
+              required
+              pattern= "[a-zA-Z]{3,}"
+              [(ngModel)]="model.lastName"
+              #lastName="ngModel"
+              name="lastName"
+              placeholder="Enter last name"
+            />
+            <div [hidden]="lastName.valid || lastName.pristine"
+            class="alert alert-danger"> </div>
+          </div>
+          <div class="form-group">
+            <label for="ese">Birth date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="ese"
+              required
+              [(ngModel)]="model.birthDate"
+              #date="ngModel"
+              name="date"
+            />
+            <div [hidden]="date.valid || date.pristine"
+            class="alert alert-danger"> </div>
+          </div>
+          <div class="form-group">
+            <label for="er">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="er"
+              required
+              pattern="^[a-zA-Z0-9._-]+@gmail.com"
+              aria-describedby="emailHelp"
+              [(ngModel)]="model.email"
+              #email="ngModel"
+              name="email"
+              placeholder="Enter email"
+            />
+            <div [hidden]="email.valid || email.pristine"
+            class="alert alert-danger"> </div>
+          
+        
+        
+          </div>
+          <div class="form-group">
+            <label for="eses">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="eses"
+              pattern="^[a-zA-Z0-9]{8,}?"
+              placeholder="Enter password"
+              required
+              [(ngModel)]="model.password"
+              #password="ngModel"
+              name="password"
+            />
+            <div [hidden]="password.valid || password.pristine"
+            class="alert alert-danger"> </div>
+          </div>
+          <div class="form-group">
+            <label for="esess">Profession</label>
+            <input
+              type="text"
+              class="form-control"
+              id="esess"
+              required
+              [(ngModel)]="model.profession"
+              #profession="ngModel"
+              name="profession"
+              placeholder="Enter profession"
+            />
+            <div [hidden]="profession.valid || profession.pristine"
+            class="alert alert-danger"> </div>
             </div>
+            <div class="form-group">
+                <label for="ezs">Category</label>
+                <input
+                  type="text"
+                  value="Customer"
+                  disabled="true"
+                  class="form-control"
+                  id="ezs"
+                  required
+                  [(ngModel)]="model.accountCategory"
+                  #accountCategory="ngModel"
+                  name="accountCategory"
+                 
+                />
+                <div [hidden]="accountCategory.valid || accountCategory.pristine"
+                class="alert alert-danger"> </div>
+               
+          </div>
+         <!--  <button type="button" class="btn btn-default" (click)="newUser(); form.reset()">New Hero</button> -->
+          <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+            Add
+          </button>
+        </form>
+        
+        
+        
+        
+        
+        
+          <div style="position: relative ;position: fixed;
+          z-index: 1; 
+          left: 33%;
+          top: 33%; "     [hidden]="!submitted" >
+            <div class="modal-dialog">
+                 <div class="modal-content">
+                   
+                    <div class="modal-header">
+                       
+                        <div id="message1" style="display:block;">
+                        
+                            <div class="alert alert-success">
+                                <h2>You submitted the following:</h2>
+                              <span class="glyphicon glyphicon-ok"></span>
+                                <strong>
+                                    
+                                    <div class="row">
+                                      <div class="col-xs-3">Name: {{ model.firstName }} </div>
+                                    
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-xs-3">Last name: {{ model.lastName }}</div>
+                                     
+                                    </div>
+                                    <div class="row">
+                                      <div class="col-xs-3">Profession: {{ model.profession }}</div>
+                                      
+                                    </div>
+                                    <br>
+                                    <button type="button" class="btn btn-primary" (click)="submitted=false">Edit</button>
+                               </strong>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+             </div>
          </div>
-     </div>
- </div>
+        
+        
+        </div>
 
 
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" routerLink='/user/ajouter' data-bs-dismiss="modal">Fermer</a>
+     
+      
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
+
